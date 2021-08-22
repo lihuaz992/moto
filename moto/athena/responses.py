@@ -48,6 +48,14 @@ class AthenaResponse(BaseResponse):
         )
         return json.dumps({"QueryExecutionId": id})
 
+    def get_query_results(sefl):
+        """
+        1. Get the query string and send it to the Presto server;
+        2. Execute the query on Presto and parse result;
+        3. Build JSON response and upload result CSV to S3
+        """
+        pass
+
     def get_query_execution(self):
         exec_id = self._get_param("QueryExecutionId")
         execution = self.athena_backend.get_execution(exec_id)
